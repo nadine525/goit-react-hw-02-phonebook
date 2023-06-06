@@ -14,3 +14,25 @@ export const Form = styled.form`
 export const Label = styled.label`
   text-align: left;
 `;
+
+export const Input = styled.input`
+  width: 250px;
+  height: 26px;
+  font-size: 20px;
+  border-radius: 5px;
+`;
+
+export const Button = styled.button`
+  margin-right: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+  color: black;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  height: 24px;
+  font-size: 14px;
+  padding: 0 10px;
+  text-align: center;
+`;
