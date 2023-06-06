@@ -14,13 +14,17 @@ export class App extends Component {
     ],
     filter: '',
   };
+
+  formSubmitHandler = (contact) => {
+    console.log(contact)
+  }
   
   
   render() {
     return (
         <div>
         <h1>Phonebook</h1>
-        <ContactForm />
+        <ContactForm onSubmit={this.formSubmitHandler} />
 
         <h2>Contacts</h2>
         {/* <Filter /> */}

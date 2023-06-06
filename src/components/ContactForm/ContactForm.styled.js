@@ -18,7 +18,7 @@ export const Label = styled.label`
 export const Input = styled.input`
   width: 250px;
   height: 26px;
-  font-size: 20px;
+  font-size: 16px;
   border-radius: 5px;
 `;
 
