@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+// import { nanoid } from 'nanoid';
+import { Form, Label } from './ContactForm.styled';
 
 class ContactForm extends Component {
   state = {
@@ -8,17 +10,17 @@ class ContactForm extends Component {
 
   render() {
     return (
-      <form>
-        <label></label>
+      <Form>
+        <Label>Name</Label>
         <input
           type="text"
           name="name"
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
-        ></input>
-        <button>Add contact</button>
-      </form>
+        />
+        <button type="submit">Add contact</button>
+      </Form>
     );
   }
 }
