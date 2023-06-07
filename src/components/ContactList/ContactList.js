@@ -1,19 +1,27 @@
 import React, { Component } from 'react';
 import { FaPhone } from 'react-icons/fa';
+import { List, Contact, Person } from './ContactList.styled';
+import { Button } from '../ContactForm/ContactForm.styled';
+import { iconSize } from '../constans';
 
 class ContactList extends Component {
   render() {
     return (
-      <ul>
+      <List>
         {this.props.contacts.map(({ id, name, number }) => (
-          <li key={id}>
-            <p>
-              <FaPhone /> {name}: {number}
-            </p>
-            <button type="button">Delete</button>
-          </li>
+          <Contact key={id}>
+            <Person>
+              <FaPhone size={iconSize.xs} /> {name}: {number}
+            </Person>
+            <Button
+              type="button"
+              onClick={() => this.props.onDeleteContact(id)}
+            >
+              Delete
+            </Button>
+          </Contact>
         ))}
-      </ul>
+      </List>
     );
   }
 }

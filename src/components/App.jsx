@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import ContactForm from './ContactForm/ContactForm';
-import ContactList from './ContactList/ContactList';
+import ContactForm from './ContactForm';
+import ContactList from './ContactList';
 // import { Division } from './App.styled';
 
 
@@ -33,7 +33,7 @@ export class App extends Component {
 
         <h2>Contacts</h2>
         {/* <Filter /> */}
-        <ContactList contacts={contacts } onDeleteContact={ this.deleteContact}/>
+        <ContactList contacts={contacts} onDeleteContact={this.deleteContact}/>
       </div>
     )
   }
