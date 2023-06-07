@@ -36,4 +36,8 @@ export const Button = styled.button`
   font-size: 14px;
   padding: 0 10px;
   text-align: center;
+
+  &:hover {
+    background-color: #188ce8;
+  }
 `;

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import ContactForm from './ContactForm';
 import ContactList from './ContactList';
-// import { Division } from './App.styled';
+import Filter from './Filter';
+import { Division } from './App.styled';
 
 
 
@@ -30,14 +31,14 @@ export class App extends Component {
   render() {
     const {contacts} = this.state
     return (
-        <div>
+        <Division>
         <h1>Phonebook</h1>
         <ContactForm onSubmit={this.formSubmitHandler} />
 
         <h2>Contacts</h2>
-        {/* <Filter /> */}
+        <Filter />
         <ContactList contacts={contacts} onDeleteContact={this.deleteContact}/>
-      </div>
+      </Division>
     )
   }
 };
