@@ -22,8 +22,10 @@ class ContactForm extends Component {
       name: name.value,
       number: number.value,
     };
+    // console.log(contact);
 
     this.props.onSubmit(contact);
+
     this.reset();
   };
 

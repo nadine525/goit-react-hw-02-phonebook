@@ -16,8 +16,11 @@ export class App extends Component {
     filter: '',
   };
 
+
   formSubmitHandler = (contact) => {
     console.log(contact)
+
+    this.setState(prevState => ({ contacts: [contact, ...prevState.contacts] }))
   }
   
     deleteContact = contactId => {
