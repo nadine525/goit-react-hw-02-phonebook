@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ContactForm from './ContactForm/ContactForm';
+import ContactList from './ContactList/ContactList';
 // import { Division } from './App.styled';
 
 
@@ -19,8 +20,12 @@ export class App extends Component {
     console.log(contact)
   }
   
+    deleteContact = contactId => {
+    this.setState(prevState => ({ contacts: prevState.contacts.filter(contact => contact.id !== contactId) }));
+  };
   
   render() {
+    const {contacts} = this.state
     return (
         <div>
         <h1>Phonebook</h1>
@@ -28,7 +33,7 @@ export class App extends Component {
 
         <h2>Contacts</h2>
         {/* <Filter /> */}
-        {/* <ContactList /> */}
+        <ContactList contacts={contacts } onDeleteContact={ this.deleteContact}/>
       </div>
     )
   }
