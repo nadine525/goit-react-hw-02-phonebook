@@ -18,11 +18,15 @@ export class App extends Component {
   };
 
 
-  formSubmitHandler = (contact) => {
-    console.log(contact)
+  formSubmitHandler = (contact, newName) => {
+    // console.log(contact, newName)
 
-    this.setState(prevState => ({ contacts: [contact, ...prevState.contacts] }))
-    console.log(this.contacts)
+    if (this.state.contacts.some(contact => contact.name.toLowerCase() === newName.toLowerCase())) {
+      return alert(`${newName} is already in the contact list`)
+    } else {
+      this.setState(prevState => ({ contacts: [contact, ...prevState.contacts] }))
+    }
+    
   }
 
   changeFilter = (event) => {
