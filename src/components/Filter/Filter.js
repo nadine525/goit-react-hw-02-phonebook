@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Label } from './Filter.styled';
 import { Input } from '../ContactForm/ContactForm.styled';
 
@@ -12,3 +13,8 @@ const Filter = ({ value, onChange }) => {
 };
 
 export default Filter;
+
+Filter.propTypes = {
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+};

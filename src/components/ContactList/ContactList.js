@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { FaPhone } from 'react-icons/fa';
+import PropTypes from 'prop-types';
 import { List, Contact, Person } from './ContactList.styled';
 import { Button } from '../ContactForm/ContactForm.styled';
 import { iconSize } from '../constans';
@@ -27,3 +28,7 @@ class ContactList extends Component {
 }
 
 export default ContactList;
+
+ContactList.propTypes = {
+  onDeleteContact: PropTypes.func.isRequired,
+};
