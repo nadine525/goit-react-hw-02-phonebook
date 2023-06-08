@@ -22,22 +22,37 @@ export class App extends Component {
     console.log(contact)
 
     this.setState(prevState => ({ contacts: [contact, ...prevState.contacts] }))
+    console.log(this.contacts)
   }
-  
-    deleteContact = contactId => {
-    this.setState(prevState => ({ contacts: prevState.contacts.filter(contact => contact.id !== contactId) }));
+
+  changeFilter = (event) => {
+    this.setState({ filter: event.currentTarget.value })
   };
   
+  deleteContact = contactId => {
+    this.setState(prevState => ({ contacts: prevState.contacts.filter(contact => contact.id !== contactId) }));
+  };
+
+  getVisibleContacts = () => {
+    const { contacts, filter } = this.state;
+
+    const normalazedFilter = filter.toLowerCase();
+    return contacts.filter(contact => contact.name.toLowerCase().includes(normalazedFilter));
+  }
+  
   render() {
-    const {contacts} = this.state
+    const {  filter } = this.state;
+
+    const visibleContacts = this.getVisibleContacts();
+
     return (
         <Division>
         <h1>Phonebook</h1>
         <ContactForm onSubmit={this.formSubmitHandler} />
 
         <h2>Contacts</h2>
-        <Filter />
-        <ContactList contacts={contacts} onDeleteContact={this.deleteContact}/>
+        <Filter value={filter} onChange={this.changeFilter} />
+        <ContactList contacts={visibleContacts} onDeleteContact={this.deleteContact}/>
       </Division>
     )
   }
