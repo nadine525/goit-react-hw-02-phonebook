@@ -1,34 +1,31 @@
-import React, { Component } from 'react';
-import { FaPhone } from 'react-icons/fa';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { List, Contact, Person } from './ContactList.styled';
-import { Button } from '../ContactForm/ContactForm.styled';
-import { iconSize } from '../constans';
+import ContactElement from '../ContactElement';
+import { List } from './ContactList.styled';
 
-class ContactList extends Component {
-  render() {
-    return (
-      <List>
-        {this.props.contacts.map(({ id, name, number }) => (
-          <Contact key={id}>
-            <Person>
-              <FaPhone size={iconSize.xs} /> {name}: {number}
-            </Person>
-            <Button
-              type="button"
-              onClick={() => this.props.onDeleteContact(id)}
-            >
-              Delete
-            </Button>
-          </Contact>
-        ))}
-      </List>
-    );
-  }
-}
+const ContactList = ({ contacts, onDeleteContact }) => {
+  return (
+    <List>
+      {contacts.map(contact => (
+        <ContactElement
+          key={contact.id}
+          contact={contact}
+          onDeleteContact={onDeleteContact}
+        />
+      ))}
+    </List>
+  );
+};
 
 export default ContactList;
 
 ContactList.propTypes = {
+  contacts: PropTypes.arrayOf(
+    PropTypes.exact({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+    }).isRequired
+  ).isRequired,
   onDeleteContact: PropTypes.func.isRequired,
 };
