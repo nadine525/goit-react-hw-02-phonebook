@@ -7,7 +7,7 @@ import { iconSize } from '../constans';
 
 const ContactElement = ({ contact, onDeleteContact }) => {
   return (
-    <Contact key={contact.id}>
+    <Contact>
       <Person>
         <FaPhone size={iconSize.xs} /> {contact.name}: {contact.number}
       </Person>
